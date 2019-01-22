@@ -1,0 +1,25 @@
+<launch>
+ 
+  <arg name="id" default="0" />
+  <arg name="robot" default="robot_$(arg id)" />
+  
+  <arg name="pos_lb" default="0.0" />
+  <arg name="pos_ub" default="0.0" />
+  <arg name="vel_min" default="0.1" />
+  <arg name="vel_max" default="1.0" />
+  <arg name="direction" default="1" />
+
+  <group ns="$(arg robot)">
+    <param name="tf_prefix" value="$(arg robot)" />
+
+    <node name="move_obstacle" pkg="soccer_stage" type="move_obstacle.py" output="screen">
+      <param name="vel_min" value="$(arg vel_min)" />
+      <param name="vel_max" value="$(arg vel_max)" />
+      <param name="pos_lb" value="$(arg pos_lb)" />
+      <param name="pos_ub" value="$(arg pos_ub)" />
+      <param name="direction" value="$(arg direction)" />
+    </node>
+  
+  </group>
+
+</launch>

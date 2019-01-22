@@ -1,0 +1,6 @@
+image: ../worlds/field1250x850.png
+resolution: 0.02            # meters / pixel
+origin: [-12.5, -8.5, 0.0]  # 2-D pose (x, y, yaw) of the lower-left pixel
+occupied_thresh: 0.65       # greater means completely occupied.
+free_thresh: 0.196          # less means completely free.
+negate: 0                   # white/black reversed

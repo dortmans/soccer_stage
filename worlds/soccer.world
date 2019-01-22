@@ -1,0 +1,229 @@
+include "omnidir_robot.inc"
+
+define floorplan model
+(
+  # sombre, sensible, artistic
+  color "gray30" # see http://www.astrouw.edu.pl/~jskowron/colors-x11/rgb.html
+
+  # most maps will need a bounding box
+  boundary 1
+
+  gui_nose 0
+  gui_grid 0
+  gui_outline 1
+  gui_move 0
+  gripper_return 0
+  fiducial_return 0
+  ranger_return 1
+  obstacle_return 1
+)
+
+define zone model
+(
+  gui_nose 0
+  gui_grid 1
+  gui_outline 0
+  gui_move 0
+  gripper_return 0
+  fiducial_return 0
+  ranger_return -1.000  # transparent to range sensors
+  obstacle_return 0 # insensible to collision
+)
+
+define goal_post model
+(
+  size [0.125 0.125 1.0]
+  gui_outline 1
+  gui_move 0
+  ranger_return 1
+  obstacle_return 1
+  color	"white"
+)
+
+define crossbar model
+(
+  size [2.65 0.125 0.125]
+  gui_outline 1
+  gui_move 0
+  ranger_return 1
+  obstacle_return 1
+  color	"white"
+)
+
+resolution 0.02   # raytracing resolution
+interval_sim 100  # simulation timestep in milliseconds
+
+window
+(
+  size [ 1250 850 ]
+  center [ 0.000 0.000 ]
+  rotate [ 0.000 0.000 ]
+  scale 50.000    # window_size/floorplan_size, rounded downwards
+)
+
+floorplan
+(
+  name "field"
+  bitmap "field1250x850.png"
+  size [ 25.000 17.000 0.000 ]
+  pose [ 0.000 0.000 0.000 0.000 ]
+)
+
+zone
+(
+  name "grass"
+  color	"green"
+  size [ 22.000 14.000 0.000 ]
+  pose [ 0.000 0.000 0.000 0.000 ]
+
+  zone
+  (
+    name "halfway_line"
+    color	"white"
+    size [ 14.000 0.125 0.000 ]
+    pose [ 0.000 0.000 0.000 90.000 ]
+  )
+  
+  zone 
+  (
+    name "touch_line_1"
+    color	"white"
+    size [ 22.000 0.125 0.000 ]
+    pose [ 0.000 6.938 0.000 0.000 ]
+  )
+  
+  zone 
+  (
+    name "touch_line_2"
+    color	"white"
+    size [ 22.000 0.125 0.000 ]
+    pose [ 0.000 -6.938 0.000 0.000 ]
+  )  
+  
+  zone 
+  (
+    name "goal_line_1"
+    color	"white"
+    size [ 14.000 0.125 0.000 ]
+    pose [ -10.938 0.000 0.000 90.000 ]
+  )  
+  
+  zone 
+  (
+    name "goal_line_2"
+    color	"white"
+    size [ 14.000 0.125 0.000 ]
+    pose [ 10.938 0.000 0.000 90.000 ]
+  )
+
+  zone
+  (
+    name "goal_area1"
+    color	"gray"
+    size [ 2.400 0.500 0.000 ]
+    pose [ -11.250 0.000 0.000 90.000 ]
+  )
+  
+  zone
+  (
+    name "goal_area2"
+    color	"gray"
+    size [ 2.400 0.500 0.000 ]
+    pose [ 11.250 0.000 0.000 90.000 ]
+  )
+)
+
+# Goal
+goal_post
+(
+  pose [ -11.0625 1.2625 0.000 0.000 ]
+)
+goal_post
+(
+  pose [ -11.0625 -1.2625 0.000 0.000 ]
+)
+crossbar
+(
+  pose [ -11.0625 0.000 1.000 90.000 ]
+)
+
+# Goal
+goal_post
+(
+  pose [ 11.0625 1.2625 0.000 0.000 ]
+)
+goal_post
+(
+  pose [ 11.0625 -1.2625 0.000 0.000 ]
+)
+crossbar
+(
+  pose [ 11.0625 0.000 1.000 90.000 ]
+)
+
+# Team Cyan
+
+omnidir_robot
+(
+  name "robot_0"
+  color "cyan"
+  pose [ -10.500 0.000 0.000 0.000 ]
+)
+omnidir_robot
+(
+  name "robot_1"
+  color "cyan"
+  pose [ -6.000 3.000 0.000 0.000 ]
+)
+omnidir_robot
+(
+  name "robot_2"
+  color "cyan"
+  pose [ -6.000 -3.000 0.000 0.000 ]
+)
+omnidir_robot
+(
+  name "robot_3"
+  color "cyan"
+  pose [ -2.000 1.500 0.000 0.000 ]
+)
+omnidir_robot
+(
+  name "robot_4"
+  color "cyan"
+  pose [ -2.000 -1.500 0.000 0.000 ]
+)
+
+# Team Magenta
+
+omnidir_robot
+(
+  name "robot_5"
+  color "magenta"
+  pose [ 10.500 0.000 0.000 180.000 ]
+)
+omnidir_robot
+(
+  name "robot_6"
+  color "magenta"
+  pose [ 6.000 3.000 0.000 180.000 ]
+)
+omnidir_robot
+(
+  name "robot_7"
+  color "magenta"
+  pose [ 6.000 -3.000 0.000 180.000 ]
+)
+omnidir_robot
+(
+  name "robot_8"
+  color "magenta"
+  pose [ 2.000 1.500 0.000 180.000 ]
+)
+omnidir_robot
+(
+  name "robot_9"
+  color "magenta"
+  pose [ 2.000 -1.500 0.000 180.000 ]
+)
+

@@ -1,0 +1,157 @@
+<launch>
+
+  <!-- id of robot receiving 2D Nav Goal from rviz  -->
+  <arg name="id" default="0" />
+  <arg name="robot" default="robot_$(arg id)" />
+  
+   <!-- visualisation -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find soccer_stage)/config/rviz_navigation_cc.rviz">
+    <remap from="/move_base_simple/goal" to="/$(arg robot)/move_base_simple/goal" />
+  </node>
+
+  <!-- simulation -->
+  <param name="/use_sim_time" value="true"/>
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find soccer_stage)/worlds/soccer.world" respawn="false" output="screen" />
+    
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find soccer_stage)/maps/field.yaml" respawn="false" >
+    <param name="frame_id" value="/map" />
+  </node>
+  
+
+  <!-- Team Cyan -->
+
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="0"/>
+    <arg name="pos_lb" value="-1.0" />
+    <arg name="pos_ub" value="1.0" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="0"/>
+    <arg name="random" value="true"/>
+  </include>
+
+
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="1"/>
+    <arg name="pos_lb" value="1.5" />
+    <arg name="pos_ub" value="4.0" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="1"/>
+    <arg name="random" value="true"/>
+  </include>
+  
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="2"/>
+    <arg name="pos_lb" value="-4.0" />
+    <arg name="pos_ub" value="-1.5" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="2"/>
+    <arg name="random" value="true"/>
+  </include>
+  
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="3"/>
+    <arg name="pos_lb" value="0.5" />
+    <arg name="pos_ub" value="3.0" />
+  </include> 
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="3"/>
+    <arg name="random" value="true"/>
+  </include>
+  
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="4"/>
+    <arg name="pos_lb" value="-3.0" />
+    <arg name="pos_ub" value="-0.5" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="4"/>
+    <arg name="random" value="true"/>
+  </include>
+  
+
+  <!-- Team Magenta -->
+
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="5"/>
+    <arg name="pos_lb" value="-1.0" />
+    <arg name="pos_ub" value="1.0" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="5"/>
+    <arg name="random" value="true"/>
+  </include>
+
+<!--  
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="6"/>
+    <arg name="pos_lb" value="1.5" />
+    <arg name="pos_ub" value="4.0" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="6"/>
+    <arg name="random" value="true"/>
+  </include>
+
+<!--  
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="7"/>
+    <arg name="pos_lb" value="-4.0" />
+    <arg name="pos_ub" value="-1.5" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="7"/>
+    <arg name="random" value="true"/>
+  </include>
+
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="8"/>
+    <arg name="pos_lb" value="0.5" />
+    <arg name="pos_ub" value="3.0" />
+  </include>
+-->
+  
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="8"/>
+    <arg name="random" value="true"/>
+  </include>
+
+<!--
+  <include file="$(find soccer_stage)/launch/obstacle.launch" >
+    <arg name="id" value="9"/>
+    <arg name="pos_lb" value="-3.0" />
+    <arg name="pos_ub" value="-0.5" />
+  </include>
+-->
+
+  <include file="$(find soccer_stage)/launch/robot.launch" >
+    <arg name="id" value="9"/>
+    <arg name="random" value="true"/>
+  </include>
+ 
+</launch>
