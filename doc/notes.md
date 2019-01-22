@@ -28,8 +28,11 @@ http://wiki.ros.org/stage
 stage_ros
 http://wiki.ros.org/stage_ros
 
+ROS — creating .world file from existing .yaml
+https://medium.com/@ivangavran/ros-creating-world-file-from-existing-yaml-5b553d31cc53
+
 teb_local_planner Tutorials
 http://wiki.ros.org/teb_local_planner/Tutorials
 
-ROS — creating .world file from existing .yaml
-https://medium.com/@ivangavran/ros-creating-world-file-from-existing-yaml-5b553d31cc53
+Difference between DWA local_planner and TEB local_planner
+https://answers.ros.org/question/274564/difference-between-dwa-local_planner-and-teb-local_planner/
