@@ -1,5 +1,12 @@
+# Notes
 
+## Simulator
 
+We use the *stage_ros* ROS package as a wrapper for the Stage 2D simulator
+
+## Navigation
+
+We use ROS *move_base* with the *teb_local_planner*
 
 ## Usage
 
@@ -23,9 +30,6 @@ http://wiki.ros.org/stage_ros
 
 teb_local_planner Tutorials
 http://wiki.ros.org/teb_local_planner/Tutorials
-
-Navigation without a map
-http://www.clearpathrobotics.com/assets/guides/jackal/navigation.html
 
 ROS — creating .world file from existing .yaml
 https://medium.com/@ivangavran/ros-creating-world-file-from-existing-yaml-5b553d31cc53
