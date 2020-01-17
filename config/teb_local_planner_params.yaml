@@ -8,7 +8,7 @@ TebLocalPlannerROS:
  global_plan_overwrite_orientation: True
  allow_init_with_backwards_motion: False
  max_global_plan_lookahead_dist: 3.0 
- feasibility_check_no_poses: 3 # must be within local costmap
+ feasibility_check_no_poses: 0 # must be within local costmap
  
     
  # Robot
@@ -33,7 +33,7 @@ TebLocalPlannerROS:
     
  # Obstacles
     
- min_obstacle_dist: 1.0 # Desired minimal distance from (static and dynamic) obstacles
+ min_obstacle_dist: 0.7 # Desired minimal distance from (static and dynamic) obstacles
                         # Include robot radius when footprint_model is "point"
  inflation_dist: 1.0 # Non-zero cost region around (static) obstacles
  dynamic_obstacle_inflation_dist: 1.0 # Non-zero cost region around (dynamic) obstacles
@@ -58,8 +58,8 @@ TebLocalPlannerROS:
  weight_acc_lim_x: 1
  weight_acc_lim_y: 1
  weight_acc_lim_theta: 1
- weight_kinematics_nh: 1 # WE HAVE A HOLONOMIC ROBOT, JUST ADD A SMALL PENALTY
- weight_kinematics_forward_drive: 1
+ weight_kinematics_nh: 0.1 # WE HAVE A HOLONOMIC ROBOT, JUST ADD A SMALL PENALTY
+ weight_kinematics_forward_drive: 2 # increased
  weight_kinematics_turning_radius: 2 # increased to rotate more in place
  weight_optimaltime: 1
  weight_obstacle: 50

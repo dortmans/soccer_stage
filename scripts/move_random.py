@@ -40,7 +40,7 @@ class MoveRandom():
           # and move to it
           self.move_to(goal)
           # wait some time before pursuing next goal
-          rospy.sleep(random.uniform(0, 2))
+          #rospy.sleep(random.uniform(0, 2))
         
     def generate_goal(self):
         ''' Generate random goal for move_base
