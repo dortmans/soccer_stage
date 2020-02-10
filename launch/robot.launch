@@ -42,6 +42,7 @@
     
     <group if="$(arg random)">
       <!-- Move randomly -->
+      <!--<node name="move_random" pkg="soccer_stage" type="move_random_circle.py" output="screen">-->
       <node name="move_random" pkg="soccer_stage" type="move_random.py" output="screen">
         <param name="x_min" value="$(arg x_min)" />
         <param name="x_max" value="$(arg x_max)" />
