@@ -11,6 +11,7 @@ obstacles_msg = ObstacleArrayMsg()
 
 def callback_base_pose_ground_truth(base_pose_ground_truth, obst_id):
   # Search for obstacle id and update fields if found
+  if obst_id == 10: return # skip the Ball
   i = -1 # -1 is the last element
   for idx, obst in enumerate(obstacles_msg.obstacles):
     if obst.id == obst_id:
@@ -34,9 +35,10 @@ def callback_base_pose_ground_truth(base_pose_ground_truth, obst_id):
   obstacles_msg.obstacles[i].polygon.points[0].z = base_pose_ground_truth.pose.pose.position.z
 
   # ORIENTATIONS
-  yaw = math.atan2(base_pose_ground_truth.twist.twist.linear.y, base_pose_ground_truth.twist.twist.linear.x)
-  quat = quaternion_from_euler(0.0, 0.0, yaw) # roll, pitch, yaw in radians
-  obstacles_msg.obstacles[i].orientation = Quaternion(*quat.tolist())
+  #yaw = math.atan2(base_pose_ground_truth.twist.twist.linear.y, base_pose_ground_truth.twist.twist.linear.x)
+  #quat = quaternion_from_euler(0.0, 0.0, yaw) # roll, pitch, yaw in radians
+  #obstacles_msg.obstacles[i].orientation = Quaternion(*quat.tolist())
+  obstacles_msg.obstacles[i].orientation = base_pose_ground_truth.pose.pose.orientation
 
   # VELOCITIES
   obstacles_msg.obstacles[i].velocities = base_pose_ground_truth.twist

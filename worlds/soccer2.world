@@ -89,29 +89,29 @@ zone
 # Goal
 goal_post
 (
-  pose [ -11.0625 1.2625 0.000 0.000 ]
+  pose [ -11.062 1.262 0.000 0.000 ]
 )
 goal_post
 (
-  pose [ -11.0625 -1.2625 0.000 0.000 ]
+  pose [ -11.062 -1.262 0.000 0.000 ]
 )
 crossbar
 (
-  pose [ -11.0625 0.000 1.000 90.000 ]
+  pose [ -11.062 0.000 1.000 90.000 ]
 )
 
 # Goal
 goal_post
 (
-  pose [ 11.0625 1.2625 0.000 0.000 ]
+  pose [ 11.062 1.262 0.000 0.000 ]
 )
 goal_post
 (
-  pose [ 11.0625 -1.2625 0.000 0.000 ]
+  pose [ 11.062 -1.262 0.000 0.000 ]
 )
 crossbar
 (
-  pose [ 11.0625 0.000 1.000 90.000 ]
+  pose [ 11.062 0.000 1.000 90.000 ]
 )
 
 # Team Cyan
@@ -120,13 +120,13 @@ omnidir_robot
 (
   name "robot_0"
   color "cyan"
-  pose [ -10.500 0.000 0.000 0.000 ]
+  pose [ -2.640 0.680 0.000 0.000 ]
 )
 omnidir_robot
 (
   name "robot_1"
   color "cyan"
-  pose [ -6.000 3.000 0.000 0.000 ]
+  pose [ -9.660 5.520 0.000 0.000 ]
 )
 omnidir_robot
 (
@@ -138,7 +138,7 @@ omnidir_robot
 (
   name "robot_3"
   color "cyan"
-  pose [ -2.000 1.500 0.000 0.000 ]
+  pose [ 3.080 4.700 0.000 0.000 ]
 )
 omnidir_robot
 (

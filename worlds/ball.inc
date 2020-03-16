@@ -1,10 +1,10 @@
-define omnidir_robot position
+define ball position
 (
-  # pacman shape (remove or comment block to make it square)
+  # cylinder shape
   block
   ( 
     points 16
-    point[0]  [ 0.000 0.000 ]
+    point[0]  [ 0.225 0.000 ]
     point[1]  [ 0.208 0.086 ]
     point[2]  [ 0.159 0.159 ]
     point[3]  [ 0.086 0.208 ]
@@ -23,23 +23,23 @@ define omnidir_robot position
     z [0 1]
   )
 
-  size [ 0.52 0.52 0.80 ] 
+  size [ 0.22 0.22 0.22 ] 
   origin [ 0.0 0.0 0.0 0.0 ]
   
-  gui_nose 1
+  gui_nose 0
   gui_outline 1
   gui_move 1
   ranger_return 1
-  obstacle_return 1
+  obstacle_return 0
 
   # kinematics
   drive "omni"
   
   # [ xmin xmax ymin ymax zmin zmax amin amax ] x,y,z in meters per second, a in degrees per second     
-  velocity_bounds [-3 3 -3 3 0 0 -90 90 ]
+  velocity_bounds [-20 20 -20 20 0 0 -360 360 ]
   
   # [ xmin xmax ymin ymax zmin zmax amin amax ] x,y,z in meters per second squared, a in degrees per second squared     
-  acceleration_bounds [-3 3 -3 3 0 0 -90 90]
+  acceleration_bounds [-20 20 -20 20 0 0 -360 360]
   
   localization "gps" # Report error-free position in world coordinates
   #localization "odom" # Position data drifts from the ground truth over time
